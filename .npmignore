@@ -1,0 +1,6 @@
+.vscode/
+src/
+.githooks/
+
+*.swp
+*.DS_STORE
