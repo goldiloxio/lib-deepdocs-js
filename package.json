@@ -53,6 +53,5 @@
     "documentation": "https://repository.tools.raise.services/repository/npm/documentation/-/documentation-4.0.0-rc.1.tgz",
     "path": "^0.12.7",
     "yargs": "^8.0.2"
-  },
-  "false": {}
+  }
 }

@@ -14,7 +14,6 @@ const directoriesFilter: Function = (srcPath: string): Function => (
 /**
 * Given a folder path, `getDirectories` returns contained
 * sub-folders that are not dedicated to testing.
-*
 * @function getDirectories
 * @returns array of folders names
 */
