@@ -4,7 +4,7 @@ lib/
 coverage/
 *.swp
 *.DS_STORE
-npm-debug.log
+npm-debug.log*
 .eslintcache
 
 # Ignore all directories
@@ -14,3 +14,6 @@ npm-debug.log
 !src/**
 !.githooks/**
 !docs/**
+!bin/**
+!.github/**
+!flow-typed/**

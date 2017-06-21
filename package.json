@@ -1,14 +1,14 @@
 {
-  "name": "deepdocs",
+  "name": "lib-deepdocs-js",
   "version": "1.0.0",
-  "description": "deep docs",
+  "description": "Recursively extracts documentation comments and builds README files at each folder level",
   "bin": {
-    "deepdocs": "./bin/deepdocs.js"
+    "deepdocs": "./bin/index.js"
   },
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "lint": "eslint -c .eslintrc ./src/**",
-    "lint:changed": "eslint -c .eslintrc --cache ./src/**",
+    "build": "babel src --out-dir lib --no-comments",
+    "lint": "eslint -c .eslintrc --fix \"{src,bin,__{tests,mocks}__}/**/*.js\"",
+    "lint:changed": "eslint -c .eslintrc --fix --cache \"{src,bin,__{tests,mocks}__}/**/*.js\"",
     "test": "jest --coverage",
     "test:changed": "jest -o",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
@@ -18,7 +18,7 @@
     "docs:lint": "documentation lint ./src/**",
     "docs:server": "documentation serve --watch ./src/** -f html --config ./docs/configs/documentation.yml",
     "docs:build": "documentation build --format html --config ./docs/configs/documentation.yml --output ./docs/api/ ./src/**",
-    "deepdocs": "node ./bin/deepdocs.js build './src'"
+    "deepdocs": "node ./bin/index.js build --path './src'"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -50,8 +50,9 @@
     ]
   },
   "dependencies": {
-    "documentation": "^4.0.0-rc.1",
+    "documentation": "https://repository.tools.raise.services/repository/npm/documentation/-/documentation-4.0.0-rc.1.tgz",
     "path": "^0.12.7",
     "yargs": "^8.0.2"
-  }
+  },
+  "false": {}
 }

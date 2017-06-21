@@ -1,0 +1,14 @@
+#!/bin/bash
+source ./.githooks/colors.sh
+
+npm run docs:lint && npm run docs:build
+
+re="docs/api/index.html"
+files=`git status -s | grep "$re" | cut -c4-`
+code=`git status -s | grep "$re" | cut -c1- | head -c 1`
+
+if [ ! -z "$files" ] && [ "$code" != "D" ]
+then
+  git add docs/api/index.html
+  echo "${green}Adding docs/api/index.html${no_color}"
+fi

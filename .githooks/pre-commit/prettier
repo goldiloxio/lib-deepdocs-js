@@ -1,0 +1,13 @@
+#!/bin/sh
+source ./.githooks/colors.sh
+
+jsfiles=$(git diff --cached --name-only --diff-filter=ACM | grep 'src\/|bin\/.\+\.jsx\?$' | tr '\n' ' ')
+[ -z "$jsfiles" ] && exit 0
+
+diffs=$(node_modules/.bin/prettier --trailing-comma all --parser flow --single-quote -l $jsfiles)
+[ -z "$diffs" ] && exit 0
+
+echo >&2 "${yellow}Javascript files must be beautified. Please run:"
+echo >&2 "npm run beautify${no_color}"
+
+exit 1
