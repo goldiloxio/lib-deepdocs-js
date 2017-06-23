@@ -2,7 +2,7 @@ import index from '../index';
 
 describe('Exposes the correct keys to the expeced functions', () => {
   test('it contains only one key', () => {
-    const totalKeys = Object.keys(index)
+    const totalKeys = Object.keys(index);
     expect(totalKeys).toHaveLength(1);
   });
 

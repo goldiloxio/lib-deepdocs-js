@@ -18,10 +18,10 @@ const directoriesFilter: Function = (srcPath: string): Function => (
 * @returns array of folders names
 */
 const getDirectories: Function = (srcPath: string): string[] =>
-fs
-.readdirSync(srcPath)
-.filter(directoriesFilter(srcPath))
-.filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
+  fs
+    .readdirSync(srcPath)
+    .filter(directoriesFilter(srcPath))
+    .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
 
 /**
 * Passes all the files contained in the folder to `documentation.js`
@@ -33,17 +33,17 @@ const write: Function = (srcPath: string, dir: string): void => {
   const config = fs.existsSync(`./docs/configs/${dir}Config.yml`) ? toc : {};
   const options = { config, shallow: true };
   documentation
-  .build([srcPath], options)
-  .then((res) => {
-    if (res.length > 0) {
-      documentation.formats.md(res, {}).then((output) => {
-        fs.writeFileSync(`${srcPath}/README.md`, output);
-      });
-    }
-  })
-  .catch((err) => {
-    throw err;
-  });
+    .build([srcPath], options)
+    .then((res: string) => {
+      if (res.length > 0) {
+        documentation.formats.md(res, {}).then((output: string) => {
+          fs.writeFileSync(`${srcPath}/README.md`, output);
+        });
+      }
+    })
+    .catch((err: string) => {
+      throw err;
+    });
 };
 
 /**

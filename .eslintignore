@@ -1,2 +1,3 @@
+# Ignore jest mocks
 **/__test__/*.js
 **/__mock__/*.js

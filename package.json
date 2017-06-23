@@ -7,8 +7,8 @@
   },
   "scripts": {
     "build": "babel src --out-dir lib --no-comments",
-    "lint": "eslint -c .eslintrc --fix \"{src,bin,__{tests,mocks}__}/**/*.js\"",
-    "lint:changed": "eslint -c .eslintrc --fix --cache \"{src,bin,__{tests,mocks}__}/**/*.js\"",
+    "lint": "eslint -c .eslintrc ./src --ext .js,.jsx,.es6,.coffee",
+    "lint:changed": "eslint -c .eslintrc --cache ./src --ext .js,.jsx,.es6,.coffee",
     "test": "jest --coverage",
     "test:changed": "jest -o",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
