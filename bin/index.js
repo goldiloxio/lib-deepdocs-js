@@ -10,7 +10,6 @@ const argv = yargs
     if (error) {
       throw error;
     } else {
-      yargs.showHelp('error');
       console.error(msg); // eslint-disable-line no-console
       return yargs.exit(1);
     }
