@@ -60,7 +60,7 @@ const init: Function = (
   dir: ?string = undefined,
 ): void | Function => {
   const directories: string[] = getDirectories(srcPath);
-  if (directories !== []) {
+  if (directories.length) {
     directories.forEach((directory: string) => {
       const dirPath = path.normalize(`${srcPath}/${directory}`);
       return init(dirPath, directory);
