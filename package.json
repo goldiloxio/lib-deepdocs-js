@@ -1,5 +1,5 @@
 {
-  "name": "lib-deepdocs-js",
+  "name": "@raise/deepdocs",
   "version": "1.0.0",
   "description": "Recursively extracts documentation comments and builds README files at each folder level",
   "bin": {
@@ -24,12 +24,14 @@
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.1",
     "babel-jest": "^20.0.3",
+    "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",

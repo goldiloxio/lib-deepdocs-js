@@ -3,5 +3,13 @@
   "parser": "babel-eslint",
   "plugins": [
     "flowtype"
-  ]
+  ],
+  "rules": {
+    "wrap-iife": [2, "any"]
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
 }

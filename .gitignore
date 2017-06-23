@@ -1,19 +1,19 @@
-.vscode/
-node_modules/
-lib/
-coverage/
-*.swp
-*.DS_STORE
-npm-debug.log*
-.eslintcache
-
 # Ignore all directories
 */**
 
 # Whitelist following directories
-!src/**
-!.githooks/**
+!src/**/*
+!.githooks/**/*
 !docs/**
 !bin/**
 !.github/**
 !flow-typed/**
+
+.vscode/
+node_modules/
+dist/
+coverage/
+*.swp
+*.DS_STORE
+npm-debug.log
+.eslintcache
