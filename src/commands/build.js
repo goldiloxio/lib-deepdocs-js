@@ -29,15 +29,17 @@ const getDirectories: Function = (srcPath: string): string[] =>
 * @function write
 */
 const write: Function = (srcPath: string, dir: string): void => {
-  const toc = `./docs/configs/${dir}Config.yml`;
-  const config = fs.existsSync(`./docs/configs/${dir}Config.yml`) ? toc : {};
+  const toc: string = path.normalize(`docs/configs/${dir}Config.yml`);
+  const config: ?string = fs.existsSync(toc) ? toc : undefined;
   const options = { config, shallow: true };
+
   documentation
     .build([srcPath], options)
     .then((res: string) => {
       if (res.length > 0) {
         documentation.formats.md(res, {}).then((output: string) => {
-          fs.writeFileSync(`${srcPath}/README.md`, output);
+          const file = path.normalize(`${srcPath}/README.md`);
+          fs.writeFileSync(file, output);
         });
       }
     })
@@ -59,14 +61,14 @@ const init: Function = (
 ): void | Function => {
   const directories: string[] = getDirectories(srcPath);
   if (directories !== []) {
-    directories.forEach(directory =>
-      init(`${srcPath}/${directory}`, directory),
-    );
+    directories.forEach((directory: string) => {
+      const dirPath = path.normalize(`${srcPath}/${directory}`);
+      return init(dirPath, directory);
+    });
   }
   if (!srcPath.includes('node_modules')) {
     return write(srcPath, dir);
   }
-
   return undefined;
 };
 

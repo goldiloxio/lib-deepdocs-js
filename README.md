@@ -54,3 +54,5 @@ If the folder that contains documentation comments is called `build`, while crea
 - [ ] write test mocking `fs` module
 - [ ] improve existing documentation comments
 - [x] think about prefix/suffix for the name of this package (lib/script/js)
+- [ ] make output readme filename configurable
+- [ ] remove all the README files in a specified source path
