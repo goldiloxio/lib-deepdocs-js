@@ -4,9 +4,8 @@ import fs from 'fs';
 import path from 'path';
 
 const command: string = 'build [input..]';
-
+const docsDir: string = 'docs/configs';
 const TEST_DIRECTORY_REGEX: RegExp = /^__.+__$/;
-
 const directoriesFilter: Function = (srcPath: string): Function => (
   file: string,
 ): boolean => fs.statSync(path.join(srcPath, file)).isDirectory();
@@ -29,7 +28,7 @@ const getDirectories: Function = (srcPath: string): string[] =>
 * @function write
 */
 const write: Function = (srcPath: string, dir: string): void => {
-  const toc: string = path.normalize(`docs/configs/${dir}Config.yml`);
+  const toc: string = path.join(docsDir, `${dir}Config.yml`);
   const config: ?string = fs.existsSync(toc) ? toc : undefined;
   const options = { config, shallow: true };
 
@@ -38,7 +37,7 @@ const write: Function = (srcPath: string, dir: string): void => {
     .then((res: string) => {
       if (res.length > 0) {
         documentation.formats.md(res, {}).then((output: string) => {
-          const file = path.normalize(`${srcPath}/README.md`);
+          const file = path.join(srcPath, 'README.md');
           fs.writeFileSync(file, output);
         });
       }
@@ -62,7 +61,7 @@ const init: Function = (
   const directories: string[] = getDirectories(srcPath);
   if (directories.length) {
     directories.forEach((directory: string) => {
-      const dirPath = path.normalize(`${srcPath}/${directory}`);
+      const dirPath = path.join(srcPath, directory);
       return init(dirPath, directory);
     });
   }
