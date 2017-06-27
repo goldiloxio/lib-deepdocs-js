@@ -6,9 +6,3 @@ toc:
   - handler
   - init
   - write
-  - getDirectories
-  - directoriesFilter
-  - getFiles
-  - filesFilter
-  - filePath
-  - hasConfig

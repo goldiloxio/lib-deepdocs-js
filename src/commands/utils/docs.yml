@@ -1,0 +1,10 @@
+toc:
+  - name: Utils
+    description: |
+      Set of helper functions that facilitate the work of the library commands.
+  - getDirectories
+  - directoriesFilter
+  - getFiles
+  - filesFilter
+  - filePath
+  - hasConfig
