@@ -3,7 +3,12 @@ toc:
     description: |
       Command to recursively extract documentation comments and build
       *README.md* files at each folder level.
+  - handler
   - init
   - write
   - getDirectories
-  - handler
+  - directoriesFilter
+  - getFiles
+  - filesFilter
+  - filePath
+  - hasConfig

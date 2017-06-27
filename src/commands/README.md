@@ -6,6 +6,19 @@ Command to recursively extract documentation comments and build
 _README.md_ files at each folder level.
 
 
+## handler
+
+This function handles the command line input and looks for the custom
+path. If not included it throws an error, otherwise it inits the process.
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `argv` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+
+Returns **void** 
+
 ## init
 
 Given a path, the `init` function looks for the existence of sub-folders
@@ -18,7 +31,6 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `dir` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?**  (optional, default `undefined`)
 
 Returns **(void | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function))** 
 
@@ -32,7 +44,6 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `dir` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **void** 
 
@@ -49,15 +60,66 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** array of folders names
 
-## handler
+## directoriesFilter
 
-This function handles the command line input and looks for the custom
-path. If not included it throws an error, otherwise it inits the process.
+Given a source path, this function returns all existing sub-folders
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
 **Parameters**
 
--   `argv` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+-   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-Returns **void** 
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+
+## getFiles
+
+Given a folder path, `getFiles` returns the contained files that
+satisfy the rules given by [filesFilter](#filesfilter).
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>** 
+
+## filesFilter
+
+Given a specific folder, returns all the files that have one of the
+extensions allowed.
+Current extensions: `['.js']`.
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+
+## filePath
+
+Returns the complete path to a specific file.
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
+
+## hasConfig
+
+Returns true if the given folder contains the `docs.yml` file expected in the
+presence of documentation comments.
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
+Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 

@@ -15,9 +15,11 @@ const argv = yargs
     }
   })
   .version(() => version)
-  .usage(`Usage:
+  .usage(
+    `Usage:
       # generate markdown documentation for every folder level that contains comments-doc
-      $0 build --path ./src`)
+      $0 build --path ./src`
+  )
   .recommendCommands()
   .help().argv;
 
