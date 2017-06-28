@@ -1,9 +1,23 @@
 toc:
+#main
+  - name: Deepdocs
+    description: |
+      This is an awesome library to do stuff with your code
+#docs
+  - name: Utils
+    description: |
+      Set of helper functions that facilitate the work of the library commands.
+  - getDirectories
+  - directoriesFilter
+  - getFiles
+  - filesFilter
+  - filePath
+  - hasConfig
+
   - name: Build
     description: |
       Command to recursively extract documentation comments and build
       *README.md* files at each folder level.
+  - handler
   - init
   - write
-  - getDirectories
-  - handler

@@ -2,7 +2,7 @@
 import documentation from 'documentation';
 import fs from 'fs';
 import path from 'path';
-import { getDirectories, getFiles, hasConfig } from './utils';
+import { getDirectories, getFiles, hasConfig, ymlCompose } from './utils';
 
 const command: string = 'build [input..]';
 
@@ -24,6 +24,7 @@ const write: Function = (srcPath: string): void => {
       if (res.length && !hasConfig(srcPath)) {
         throw new Error(`Please include table of content for ${srcPath}`);
       } else if (res.length) {
+        ymlCompose(config);
         documentation.formats.md(res, {}).then((output: string) => {
           const file = path.join(srcPath, 'README.md');
           fs.writeFileSync(file, output);
@@ -31,7 +32,6 @@ const write: Function = (srcPath: string): void => {
       }
     })
     .catch((err: string) => {
-      console.log('before', err); // eslint-disable-line no-console
       throw err;
     });
 };
@@ -54,7 +54,7 @@ const init: Function = (
     });
   }
   if (!srcPath.includes('node_modules')) {
-    return write(srcPath);
+    write(srcPath);
   }
   return undefined;
 };

@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-const docsYml: string = 'docs.yml';
+const ymlMarkdownPath: string = 'docs.yml';
+const ymlMarkupPath: string = path.join('docs', 'configs', 'documentation.yml');
+const appendTag: string = '#docs';
 const extensions: string[] = ['.js'];
 const TEST_DIRECTORY_REGEX: RegExp = /^__.+__$/;
 
@@ -68,5 +70,23 @@ export const getFiles: Function = (srcPath: string): string[] =>
 export const hasConfig: Function = (srcPath: string): boolean =>
   fs
     .readdirSync(srcPath)
-    .filter((file: string) => file === docsYml)
+    .filter((file: string) => file === ymlMarkdownPath)
     .length > 0;
+
+/**
+* This function takes care of appending existing tables of content into
+* the main `documentation.yml` file used for markup docs. It allows the
+* usage of a main title and description and appends the content only after
+* the predefined `#docs` tag.
+* @function ymlCompose
+*/
+export const ymlCompose = (currentPath) => {
+  const current = fs.readFileSync(ymlMarkupPath);
+  const idxTag = current.indexOf(appendTag) + appendTag.length;
+
+  fs.truncate(ymlMarkupPath, idxTag, () => {
+    const content = fs.readFileSync(currentPath, 'utf8');
+    const toc = content.replace(/\btoc:/, '');
+    fs.appendFileSync(ymlMarkupPath, toc);
+  });
+};

@@ -81,3 +81,14 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+## ymlCompose
+
+This function takes care of appending existing tables of content into
+the main `documentation.yml` file used for markup docs. It allows the
+usage of a main title and description and appends the content only after
+the predefined `#docs` tag.
+
+**Parameters**
+
+-   `currentPath`  

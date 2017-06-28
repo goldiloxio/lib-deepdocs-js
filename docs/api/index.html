@@ -25,9 +25,9 @@
               
                 
                 <li><a
-                  href='#build'
+                  href='#deepdocs'
                   class="h5 bold black caps">
-                  Build
+                  Deepdocs
                   
                 </a>
                 
@@ -35,19 +35,9 @@
               
                 
                 <li><a
-                  href='#init'
-                  class="">
-                  init
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#write'
-                  class="">
-                  write
+                  href='#utils'
+                  class="h5 bold black caps">
+                  Utils
                   
                 </a>
                 
@@ -65,9 +55,9 @@
               
                 
                 <li><a
-                  href='#handler'
+                  href='#directoriesfilter'
                   class="">
-                  handler
+                  directoriesFilter
                   
                 </a>
                 
@@ -75,9 +65,9 @@
               
                 
                 <li><a
-                  href='#directoriesfilter'
+                  href='#getfiles'
                   class="">
-                  directoriesFilter
+                  getFiles
                   
                 </a>
                 
@@ -105,9 +95,9 @@
               
                 
                 <li><a
-                  href='#getfiles'
+                  href='#hasconfig'
                   class="">
-                  getFiles
+                  hasConfig
                   
                 </a>
                 
@@ -115,9 +105,49 @@
               
                 
                 <li><a
-                  href='#hasconfig'
+                  href='#build'
+                  class="h5 bold black caps">
+                  Build
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#handler'
                   class="">
-                  hasConfig
+                  handler
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#init'
+                  class="">
+                  init
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#write'
+                  class="">
+                  write
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ymlcompose'
+                  class="">
+                  ymlCompose
                   
                 </a>
                 
@@ -135,13 +165,12 @@
           
             <div class='keyline-top-not py2'><section class='py2 clearfix'>
 
-  <h2 id='build' class='mt0'>
-    Build
+  <h2 id='deepdocs' class='mt0'>
+    Deepdocs
   </h2>
 
   
-    <p>Command to recursively extract documentation comments and build
-<em>README.md</em> files at each folder level.</p>
+    <p>This is an awesome library to do stuff with your code</p>
 
   
 </section>
@@ -149,147 +178,18 @@
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='utils' class='mt0'>
+    Utils
+  </h2>
 
   
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='init'>
-      init
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Given a path, the <code>init</code> function looks for the existence of sub-folders
-and keep calling itself until it reaches a layer containing no more folders.
-For each layer calls the <a href="#write">#write</a> function which will take care of creating the
-README file.</p>
-
-
-  <div class='pre p1 fill-light mt0'>init(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-    
-  
-
-  
-
-  
-
-  
-
-  
+    <p>Set of helper functions that facilitate the work of the library commands.</p>
 
   
 </section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='write'>
-      write
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Passes all the files contained in the folder to <code>documentation.js</code>
-which will look for comments and extract them into a README file.</p>
-
-
-  <div class='pre p1 fill-light mt0'>write(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): void</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>void</code>
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
+</div>
           
         
           
@@ -372,77 +272,6 @@ sub-folders that are not dedicated to testing.</p>
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='handler'>
-      handler
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function handles the command line input and looks for the custom
-path. If not included it throws an error, otherwise it inits the process.</p>
-
-
-  <div class='pre p1 fill-light mt0'>handler(argv: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>argv</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>void</code>
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='directoriesfilter'>
       directoriesFilter
     </h3>
@@ -491,6 +320,77 @@ path. If not included it throws an error, otherwise it inits the process.</p>
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getfiles'>
+      getFiles
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a folder path, <code>getFiles</code> returns the contained files that
+satisfy the rules given by <a href="#filesfilter">filesFilter</a>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>getFiles(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
     
   
 
@@ -655,77 +555,6 @@ Current extensions: <code>['.js']</code>.</p>
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='getfiles'>
-      getFiles
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Given a folder path, <code>getFiles</code> returns the contained files that
-satisfy the rules given by <a href="#filesfilter">filesFilter</a>.</p>
-
-
-  <div class='pre p1 fill-light mt0'>getFiles(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='hasconfig'>
       hasConfig
     </h3>
@@ -776,6 +605,300 @@ presence of documentation comments.</p>
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='build' class='mt0'>
+    Build
+  </h2>
+
+  
+    <p>Command to recursively extract documentation comments and build
+<em>README.md</em> files at each folder level.</p>
+
+  
+</section>
+</div>
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='handler'>
+      handler
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function handles the command line input and looks for the custom
+path. If not included it throws an error, otherwise it inits the process.</p>
+
+
+  <div class='pre p1 fill-light mt0'>handler(argv: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>argv</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='init'>
+      init
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a path, the <code>init</code> function looks for the existence of sub-folders
+and keep calling itself until it reaches a layer containing no more folders.
+For each layer calls the <a href="#write">#write</a> function which will take care of creating the
+README file.</p>
+
+
+  <div class='pre p1 fill-light mt0'>init(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='write'>
+      write
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Passes all the files contained in the folder to <code>documentation.js</code>
+which will look for comments and extract them into a README file.</p>
+
+
+  <div class='pre p1 fill-light mt0'>write(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): void</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>srcPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ymlcompose'>
+      ymlCompose
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function takes care of appending existing tables of content into
+the main <code>documentation.yml</code> file used for markup docs. It allows the
+usage of a main title and description and appends the content only after
+the predefined <code>#docs</code> tag.</p>
+
+
+  <div class='pre p1 fill-light mt0'>ymlCompose(currentPath: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>currentPath</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
   
 
   
