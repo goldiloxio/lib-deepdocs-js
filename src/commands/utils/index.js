@@ -80,13 +80,13 @@ export const hasConfig: Function = (srcPath: string): boolean =>
 * the predefined `#docs` tag.
 * @function ymlCompose
 */
-export const ymlCompose = (currentPath) => {
-  const current = fs.readFileSync(ymlMarkupPath);
-  const idxTag = current.indexOf(appendTag) + appendTag.length;
+export const ymlCompose: Function = (currentPath: string) => {
+  const current: string = fs.readFileSync(ymlMarkupPath);
+  const idxTag: number = current.indexOf(appendTag) + appendTag.length;
 
   fs.truncate(ymlMarkupPath, idxTag, () => {
-    const content = fs.readFileSync(currentPath, 'utf8');
-    const toc = content.replace(/\btoc:/, '');
+    const content: string = fs.readFileSync(currentPath, 'utf8');
+    const toc: string = content.replace(/\btoc:/, '');
     fs.appendFileSync(ymlMarkupPath, toc);
   });
 };

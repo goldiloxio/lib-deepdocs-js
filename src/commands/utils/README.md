@@ -89,6 +89,8 @@ the main `documentation.yml` file used for markup docs. It allows the
 usage of a main title and description and appends the content only after
 the predefined `#docs` tag.
 
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
 **Parameters**
 
--   `currentPath`  
+-   `currentPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
