@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import chalk from 'chalk';
+import prompt from 'prompt';
+import mkdirp from 'mkdirp';
 
 const ymlMarkdownPath: string = 'docs.yml';
 const ymlMarkupPath: string = path.join('docs', 'configs', 'documentation.yml');
@@ -46,10 +49,10 @@ const filePath: Function = (srcPath: string): Function => (
 * @returns array of folders names
 */
 export const getDirectories: Function = (srcPath: string): string[] =>
-  fs
-    .readdirSync(srcPath)
-    .filter(directoriesFilter(srcPath))
-    .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
+fs
+.readdirSync(srcPath)
+.filter(directoriesFilter(srcPath))
+.filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
 
 /**
 * Given a folder path, `getFiles` returns the contained files that
@@ -57,10 +60,7 @@ export const getDirectories: Function = (srcPath: string): string[] =>
 * @function getFiles
 */
 export const getFiles: Function = (srcPath: string): string[] =>
-  fs
-    .readdirSync(srcPath)
-    .filter(filesFilter(srcPath))
-    .map(filePath(srcPath));
+fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
 
 /**
 * Returns true if the given folder contains the `docs.yml` file expected in the
@@ -68,10 +68,8 @@ export const getFiles: Function = (srcPath: string): string[] =>
 * @function hasConfig
 */
 export const hasConfig: Function = (srcPath: string): boolean =>
-  fs
-    .readdirSync(srcPath)
-    .filter((file: string) => file === ymlMarkdownPath)
-    .length > 0;
+fs.readdirSync(srcPath).filter((file: string) => file === ymlMarkdownPath)
+.length > 0;
 
 /**
 * This function takes care of appending existing tables of content into
@@ -89,4 +87,55 @@ export const ymlCompose: Function = (currentPath: string) => {
     const toc: string = content.replace(/\btoc:/, '');
     fs.appendFileSync(ymlMarkupPath, toc);
   });
+};
+
+/**
+* @function configTemplate
+*/
+const configTemplate: Function = (res: {
+  name: string,
+  description: string,
+}): string => { // eslint-disable-line
+  return `toc:
+  #main
+  - name: ${res.name}
+    description: |
+      ${res.description}
+  #docs`;
+};
+
+/**
+* prompt document
+*/
+export const populateConfig: Function = (callback: Function): void => {
+  prompt.start();
+  prompt.get(
+    {
+      properties: {
+        name: {
+          description: chalk.bgBlack.yellow('Application/Library name'),
+          type: 'string',
+          pattern: /^(\w|\d|-)+$/,
+          message: 'Name can only contain letters, digits, and hyphens',
+          required: true,
+        },
+        description: {
+          description: chalk.bgBlack.yellow('Description'),
+          type: 'string',
+          required: true,
+        },
+      },
+    },
+    (err, res) => {
+      if (err) {
+        console.log(err); // eslint-disable-line no-console
+        return;
+      }
+      if (!fs.existsSync('docs/configs')) {
+        mkdirp.sync('docs/configs');
+      }
+      fs.writeFileSync(ymlMarkupPath, configTemplate(res));
+      callback();
+    },
+  );
 };

@@ -2,10 +2,16 @@
 import documentation from 'documentation';
 import fs from 'fs';
 import path from 'path';
-import { getDirectories, getFiles, hasConfig, ymlCompose } from './utils';
+import {
+  getDirectories,
+  getFiles,
+  hasConfig,
+  ymlCompose,
+  populateConfig,
+} from './utils';
 
 const command: string = 'build [input..]';
-
+const ymlMarkupPath = path.join('docs', 'configs', 'documentation.yml');
 /**
 * Passes all the files contained in the folder to `documentation.js`
 * which will look for comments and extract them into a README file.
@@ -37,24 +43,34 @@ const write: Function = (srcPath: string): void => {
 };
 
 /**
+*
+*/
+const crawler = (srcPath: string) => {
+  const directories: string[] = getDirectories(srcPath);
+  if (directories.length) {
+    directories.forEach((directory: string) => {
+      const dirPath = path.join(srcPath, directory);
+      return crawler(dirPath);
+    });
+  }
+  if (!srcPath.includes('node_modules')) {
+    write(srcPath);
+  }
+};
+
+/**
 * Given a path, the `init` function looks for the existence of sub-folders
 * and keep calling itself until it reaches a layer containing no more folders.
 * For each layer calls the {@link #write} function which will take care of creating the
 * README file.
 * @function init
 */
-const init: Function = (
-  srcPath: string,
-): void | Function => {
-  const directories: string[] = getDirectories(srcPath);
-  if (directories.length) {
-    directories.forEach((directory: string) => {
-      const dirPath = path.join(srcPath, directory);
-      return init(dirPath);
-    });
-  }
-  if (!srcPath.includes('node_modules')) {
-    write(srcPath);
+const init: Function = (srcPath: string): void | Function => {
+  const configExist = fs.existsSync(ymlMarkupPath);
+  if (configExist) {
+    crawler(srcPath);
+  } else {
+    populateConfig(crawler.bind(null, srcPath));
   }
   return undefined;
 };
