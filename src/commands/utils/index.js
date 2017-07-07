@@ -11,7 +11,8 @@ const extensions: string[] = ['.js'];
 const TEST_DIRECTORY_REGEX: RegExp = /^__.+__$/;
 
 /**
-* Given a source path, this function returns all existing sub-folders
+* Given a source path, this function
+* returns all existing sub-folders
 * @function directoriesFilter
 */
 const directoriesFilter: Function = (srcPath: string): Function => (
@@ -19,8 +20,9 @@ const directoriesFilter: Function = (srcPath: string): Function => (
 ): boolean => fs.statSync(path.join(srcPath, file)).isDirectory();
 
 /**
-* Given a specific folder, returns all the files that have one of the
-* extensions allowed.
+* Given a specific folder, returns all
+* the files that have one of the extensions
+* allowed.
 * Current extensions: `['.js']`.
 * @function filesFilter
 */
@@ -43,8 +45,9 @@ const filePath: Function = (srcPath: string): Function => (
 ): string => path.join(srcPath, file);
 
 /**
-* Given a folder path, `getDirectories` returns contained
-* sub-folders that are not dedicated to testing.
+* Given a folder path, `getDirectories`
+* returns contained sub-folders that
+* are not dedicated to testing.
 * @function getDirectories
 * @returns array of folders names
 */
@@ -55,15 +58,17 @@ fs
 .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
 
 /**
-* Given a folder path, `getFiles` returns the contained files that
-* satisfy the rules given by {@link filesFilter}.
+* Given a folder path, `getFiles` returns
+* the contained files that satisfy the
+* rules given by {@link filesFilter}.
 * @function getFiles
 */
 export const getFiles: Function = (srcPath: string): string[] =>
 fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
 
 /**
-* Returns true if the given folder contains the `docs.yml` file expected in the
+* Returns true if the given folder contains
+* the `docs.yml` file expected in the
 * presence of documentation comments.
 * @function hasConfig
 */
@@ -72,10 +77,13 @@ fs.readdirSync(srcPath).filter((file: string) => file === ymlMarkdownPath)
 .length > 0;
 
 /**
-* This function takes care of appending existing tables of content into
-* the main `documentation.yml` file used for markup docs. It allows the
-* usage of a main title and description and appends the content only after
-* the predefined `#docs` tag.
+* This function takes care of appending
+* existing tables of content into the
+* main `documentation.yml` file used
+* for markup docs. It allows the usage
+* of a main title and description and
+* appends the content only after the
+* predefined `#docs` tag.
 * @function ymlCompose
 */
 export const ymlCompose: Function = (currentPath: string) => {
@@ -90,6 +98,11 @@ export const ymlCompose: Function = (currentPath: string) => {
 };
 
 /**
+* Returns a template for the main config file
+* which will be used for markup documentation.
+* In order to populate name and description it
+* takes for parameters the user's input from
+* {@link populateConfig}.
 * @function configTemplate
 */
 const configTemplate: Function = (res: {
@@ -105,7 +118,10 @@ const configTemplate: Function = (res: {
 };
 
 /**
-* prompt document
+* Prompts the user with an input to
+* insert the application or library
+* name and its description.
+* @function populateConfig
 */
 export const populateConfig: Function = (callback: Function): void => {
   prompt.start();

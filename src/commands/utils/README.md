@@ -7,8 +7,9 @@ Set of helper functions that facilitate the work of the library commands.
 
 ## getDirectories
 
-Given a folder path, `getDirectories` returns contained
-sub-folders that are not dedicated to testing.
+Given a folder path, `getDirectories`
+returns contained sub-folders that
+are not dedicated to testing.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -20,7 +21,8 @@ Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ## directoriesFilter
 
-Given a source path, this function returns all existing sub-folders
+Given a source path, this function
+returns all existing sub-folders
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -32,8 +34,9 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ## getFiles
 
-Given a folder path, `getFiles` returns the contained files that
-satisfy the rules given by [filesFilter](#filesfilter).
+Given a folder path, `getFiles` returns
+the contained files that satisfy the
+rules given by [filesFilter](#filesfilter).
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -45,8 +48,9 @@ Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ## filesFilter
 
-Given a specific folder, returns all the files that have one of the
-extensions allowed.
+Given a specific folder, returns all
+the files that have one of the extensions
+allowed.
 Current extensions: `['.js']`.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
@@ -71,7 +75,8 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ## hasConfig
 
-Returns true if the given folder contains the `docs.yml` file expected in the
+Returns true if the given folder contains
+the `docs.yml` file expected in the
 presence of documentation comments.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
@@ -82,20 +87,13 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
 
-## ymlCompose
-
-This function takes care of appending existing tables of content into
-the main `documentation.yml` file used for markup docs. It allows the
-usage of a main title and description and appends the content only after
-the predefined `#docs` tag.
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
-**Parameters**
-
--   `currentPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-
 ## configTemplate
+
+Returns a template for the main config file
+which will be used for markup documentation.
+In order to populate name and description it
+takes for parameters the user's input from
+[populateConfig](#populateconfig).
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -107,7 +105,9 @@ Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 
 ## populateConfig
 
-prompt document
+Prompts the user with an input to
+insert the application or library
+name and its description.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -116,3 +116,19 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 -   `callback` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** 
 
 Returns **void** 
+
+## ymlCompose
+
+This function takes care of appending
+existing tables of content into the
+main `documentation.yml` file used
+for markup docs. It allows the usage
+of a main title and description and
+appends the content only after the
+predefined `#docs` tag.
+
+Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+
+**Parameters**
+
+-   `currentPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 

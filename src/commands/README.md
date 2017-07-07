@@ -21,10 +21,10 @@ Returns **void**
 
 ## init
 
-Given a path, the `init` function looks for the existence of sub-folders
-and keep calling itself until it reaches a layer containing no more folders.
-For each layer calls the [#write](#write) function which will take care of creating the
-README file.
+Before launching the [#crawler](#crawler) function,
+`init` will make sure that the project contains
+the required `documentation.yml` file in
+`docs/config`.
 
 Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
@@ -48,6 +48,11 @@ Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 Returns **void** 
 
 ## crawler
+
+Given a path, the `crawler` function looks for the existence of sub-folders
+and keep calling itself until it reaches a layer containing no more folders.
+For each layer calls the [#write](#write) function which will take care of creating the
+README file.
 
 **Parameters**
 

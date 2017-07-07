@@ -105,6 +105,36 @@
               
                 
                 <li><a
+                  href='#configtemplate'
+                  class="">
+                  configTemplate
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#populateconfig'
+                  class="">
+                  populateConfig
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ymlcompose'
+                  class="">
+                  ymlCompose
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#build'
                   class="h5 bold black caps">
                   Build
@@ -148,36 +178,6 @@
                   href='#crawler'
                   class="">
                   crawler
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#ymlcompose'
-                  class="">
-                  ymlCompose
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#configtemplate'
-                  class="">
-                  configTemplate
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#populateconfig'
-                  class="">
-                  populateConfig
                   
                 </a>
                 
@@ -236,8 +236,9 @@
   </div>
   
 
-  <p>Given a folder path, <code>getDirectories</code> returns contained
-sub-folders that are not dedicated to testing.</p>
+  <p>Given a folder path, <code>getDirectories</code>
+returns contained sub-folders that
+are not dedicated to testing.</p>
 
 
   <div class='pre p1 fill-light mt0'>getDirectories(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
@@ -310,7 +311,8 @@ sub-folders that are not dedicated to testing.</p>
   </div>
   
 
-  <p>Given a source path, this function returns all existing sub-folders</p>
+  <p>Given a source path, this function
+returns all existing sub-folders</p>
 
 
   <div class='pre p1 fill-light mt0'>directoriesFilter(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
@@ -380,8 +382,9 @@ sub-folders that are not dedicated to testing.</p>
   </div>
   
 
-  <p>Given a folder path, <code>getFiles</code> returns the contained files that
-satisfy the rules given by <a href="#filesfilter">filesFilter</a>.</p>
+  <p>Given a folder path, <code>getFiles</code> returns
+the contained files that satisfy the
+rules given by <a href="#filesfilter">filesFilter</a>.</p>
 
 
   <div class='pre p1 fill-light mt0'>getFiles(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
@@ -451,8 +454,9 @@ satisfy the rules given by <a href="#filesfilter">filesFilter</a>.</p>
   </div>
   
 
-  <p>Given a specific folder, returns all the files that have one of the
-extensions allowed.
+  <p>Given a specific folder, returns all
+the files that have one of the extensions
+allowed.
 Current extensions: <code>['.js']</code>.</p>
 
 
@@ -593,7 +597,8 @@ Current extensions: <code>['.js']</code>.</p>
   </div>
   
 
-  <p>Returns true if the given folder contains the <code>docs.yml</code> file expected in the
+  <p>Returns true if the given folder contains
+the <code>docs.yml</code> file expected in the
 presence of documentation comments.</p>
 
 
@@ -635,6 +640,223 @@ presence of documentation comments.</p>
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='configtemplate'>
+      configTemplate
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Returns a template for the main config file
+which will be used for markup documentation.
+In order to populate name and description it
+takes for parameters the user's input from
+<a href="#populateconfig">populateConfig</a>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>configTemplate(res: {name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>}): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>res</span> <code class='quiet'>({name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>})</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='populateconfig'>
+      populateConfig
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Prompts the user with an input to
+insert the application or library
+name and its description.</p>
+
+
+  <div class='pre p1 fill-light mt0'>populateConfig(callback: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): void</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>callback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>void</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ymlcompose'>
+      ymlCompose
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function takes care of appending
+existing tables of content into the
+main <code>documentation.yml</code> file used
+for markup docs. It allows the usage
+of a main title and description and
+appends the content only after the
+predefined <code>#docs</code> tag.</p>
+
+
+  <div class='pre p1 fill-light mt0'>ymlCompose(currentPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>currentPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
   
 
   
@@ -751,10 +973,10 @@ path. If not included it throws an error, otherwise it inits the process.</p>
   </div>
   
 
-  <p>Given a path, the <code>init</code> function looks for the existence of sub-folders
-and keep calling itself until it reaches a layer containing no more folders.
-For each layer calls the <a href="#write">#write</a> function which will take care of creating the
-README file.</p>
+  <p>Before launching the <a href="#crawler">#crawler</a> function,
+<code>init</code> will make sure that the project contains
+the required <code>documentation.yml</code> file in
+<code>docs/config</code>.</p>
 
 
   <div class='pre p1 fill-light mt0'>init(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
@@ -895,9 +1117,13 @@ which will look for comments and extract them into a README file.</p>
   </div>
   
 
-  
+  <p>Given a path, the <code>crawler</code> function looks for the existence of sub-folders
+and keep calling itself until it reaches a layer containing no more folders.
+For each layer calls the <a href="#write">#write</a> function which will take care of creating the
+README file.</p>
 
-  <div class='pre p1 fill-light mt0'>crawler</div>
+
+  <div class='pre p1 fill-light mt0'>crawler(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -925,213 +1151,6 @@ which will look for comments and extract them into a README file.</p>
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='ymlcompose'>
-      ymlCompose
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function takes care of appending existing tables of content into
-the main <code>documentation.yml</code> file used for markup docs. It allows the
-usage of a main title and description and appends the content only after
-the predefined <code>#docs</code> tag.</p>
-
-
-  <div class='pre p1 fill-light mt0'>ymlCompose(currentPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>currentPath</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='configtemplate'>
-      configTemplate
-    </h3>
-    
-    
-  </div>
-  
-
-  
-
-  <div class='pre p1 fill-light mt0'>configTemplate(res: {name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>}): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>res</span> <code class='quiet'>({name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>})</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-            <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='populateconfig'>
-      populateConfig
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>prompt document</p>
-
-
-  <div class='pre p1 fill-light mt0'>populateConfig</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>callback</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>void</code>
-    
   
 
   

@@ -43,7 +43,11 @@ const write: Function = (srcPath: string): void => {
 };
 
 /**
-*
+* Given a path, the `crawler` function looks for the existence of sub-folders
+* and keep calling itself until it reaches a layer containing no more folders.
+* For each layer calls the {@link #write} function which will take care of creating the
+* README file.
+* @function crawler
 */
 const crawler = (srcPath: string) => {
   const directories: string[] = getDirectories(srcPath);
@@ -59,10 +63,10 @@ const crawler = (srcPath: string) => {
 };
 
 /**
-* Given a path, the `init` function looks for the existence of sub-folders
-* and keep calling itself until it reaches a layer containing no more folders.
-* For each layer calls the {@link #write} function which will take care of creating the
-* README file.
+* Before launching the {@link #crawler} function,
+* `init` will make sure that the project contains
+* the required `documentation.yml` file in
+* `docs/config`.
 * @function init
 */
 const init: Function = (srcPath: string): void | Function => {

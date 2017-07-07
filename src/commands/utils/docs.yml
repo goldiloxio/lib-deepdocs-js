@@ -8,3 +8,6 @@ toc:
   - filesFilter
   - filePath
   - hasConfig
+  - configTemplate
+  - populateConfig
+  - ymlCompose
