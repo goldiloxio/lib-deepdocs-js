@@ -53,9 +53,9 @@ const filePath: Function = (srcPath: string): Function => (
 */
 export const getDirectories: Function = (srcPath: string): string[] =>
   fs
-  .readdirSync(srcPath)
-  .filter(directoriesFilter(srcPath))
-  .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
+    .readdirSync(srcPath)
+    .filter(directoriesFilter(srcPath))
+    .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
 
 /**
 * Given a folder path, `getFiles` returns
@@ -64,7 +64,10 @@ export const getDirectories: Function = (srcPath: string): string[] =>
 * @function getFiles
 */
 export const getFiles: Function = (srcPath: string): string[] =>
-  fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
+  fs
+    .readdirSync(srcPath)
+    .filter(filesFilter(srcPath))
+    .map(filePath(srcPath));
 
 /**
 * Returns true if the given folder contains
@@ -73,8 +76,10 @@ export const getFiles: Function = (srcPath: string): string[] =>
 * @function hasConfig
 */
 export const hasConfig: Function = (srcPath: string): boolean =>
-  fs.readdirSync(srcPath).filter((file: string) => file === YML_MARKDOWN_PATH)
-  .length > 0;
+  fs
+    .readdirSync(srcPath)
+    .filter((file: string) => file === YML_MARKDOWN_PATH)
+    .length > 0;
 
 /**
 * This function takes care of appending
