@@ -9,24 +9,59 @@
 * It uses `documentation.js` which supports modern JavaScript: ES5, ES2017, JSX, and [Flow](http://flowtype.org/) type annotations.
 * Given an initial path, it crawls into all the subfolders and it generates README files whenever documentation comments are found.
 * It can be integrated in githooks and it will take care of creating the README files while adding them in the same commit.
+* It captures the content of every `docs.yml` file (used for markdown) and stores them into `documentation.yml` which is used for markup docs instead.
+
 
 ## Usage
 Install `deepdocs` using the [npm](https://www.npmjs.com/) package manager:
+
 ```sh
 $ npm install deepdocs --save
 ```
-This installs a command called `deepdocs` that you can include in your `package.json` file and call the build function by providing a source path.
+This installs the command `deepdocs` that you can include in your `package.json` and call the build function by providing a source path.
 
-## Examples
-Add as a script to your package.json file
 ```json
 "deepdocs": "deepdocs build --path ./src"
 
 ```
 
+## Configs
+`documentation.js` allows the usage of table of contents for both markup and markdown docs. In order to do so, a `documentation.yml` file is expeceted in `docs/configs` for the markup documentation and a `docs.yml` file is expected in every folder in which the READMEs will be created.
+To avoid having to copy and paste the content of each `docs.yml` into the `documentation.yml`, deepdocs runs a `ymlCompose` function which will take care of automatically run this operation, right before writing the docs.
+
+
+***Example tree structure***
+
+
+    .
+    ├── ...
+    ├── docs
+    ├── configs
+ 	 	  ├── documentation.yml         #table of content for markup documentation
+    ├── src
+    │   ├── helpers
+    │	 	  ├── index.js
+    │	 	  ├── docs.yml				# table of content for helpers/index.js
+    │	 	  ├── README.MD
+    │   ├── components
+    │	 	  ├── index.js
+    │	 	  ├── docs.yml              # table of content for components/index.js
+    │	 	  ├── README.MD
+    │   └── ...                         # etc.
+    └── ...
+
+## Githooks
+
 To run `deepdocs` automatically add the following script into your githooks:
+
 ```sh
 #!/bin/bash
+
+if [ ! -f docs/configs/documentation.yml ]; then
+  echo >&2 "Documentation config files need to be generated. Please run:"
+  echo >&2 "npm run deepdocs"
+  exit 1
+fi
 
 npm run deepdocs
 
@@ -39,18 +74,14 @@ then
   `git add $files`
   echo "Adding README files"
 fi
+
 ```
-This will take care of creating the README files and add them to your current git commit/push. It looks for README files present in the current git status list and, if they are not prefixed by the delete code -`D`-, it will seamlessly merge them into your current process.  
+This will take care of creating the README files and add them to your current git commit/push. It looks for README files present in the current git status list and, if they are not prefixed by the delete code `D` (delete), it will seamlessly merge them into your current process.  
 
-## Configs
-`deepdocs` allows the implementation of table of contents to better control the structure of the documentation. Since each layer is dynamic and initially unkown, by default the command will look for config files prefixed by the name of the current folder and suffixed by `Config.json`.
-
-***Example***
-If the folder that contains documentation comments is called `build`, while creating the README files `deepdocs` will also look for a file called `buildConfig.json` in the following path: `./docs/configs/`. In order to have a dedicated toc for each folder level just populate the configs folder with the expected files.
+It also looks for the existence of `docs/configs/documentation.yml`, which is needed for the yaml compose function described above. If the file is not present it will exit the precommit.
 
 
 ### todo
-- [ ] upload package to Nexus
 - [ ] write test mocking `fs` module
 - [ ] improve existing documentation comments
 - [x] think about prefix/suffix for the name of this package (lib/script/js)
