@@ -32,22 +32,23 @@ To avoid having to copy and paste the content of each `docs.yml` into the `docum
 
 ***Example tree structure***
 
-
     .
     ├── ...
     ├── docs
-    ├── configs
-        ├── documentation.yml                 #table of content for markup documentation
+    │   ├── api
+    │       └── index.html                # markup documentation
+    │   └── configs
+    │       └── documentation.yml         # table of content for markup documentation
     ├── src
     │   ├── helpers
-    │	    ├── index.js
-    │	    ├── docs.yml	          # table of content for helpers/index.js
-    │	    ├── README.MD
+    │       ├── index.js
+    │       ├── docs.yml                  # table of content for helpers/index.js
+    │       ├── README.md
     │   ├── components
-    │	 	  ├── index.js
-    │	 	  ├── docs.yml            # table of content for components/index.js
-    │	 	  ├── README.MD
-    │   └── ...                               # etc.
+    │       ├── index.js
+    │       ├── docs.yml                  # table of content for components/index.js
+    │       ├── README.md
+    │   └── ...                           # etc.
     └── ...
 
 ## Githooks
