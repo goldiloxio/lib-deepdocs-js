@@ -124,6 +124,7 @@ const configTemplate: Function = (res: {
 * @function populateConfig
 */
 export const populateConfig: Function = (callback: Function): void => {
+  prompt.message = '[deepdocs]';
   prompt.start();
   prompt.get(
     {
