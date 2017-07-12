@@ -28,7 +28,8 @@ const write: Function = (srcPath: string): void => {
     .build(containedFiles, options)
     .then((res: string) => {
       if (res.length && !hasConfig(srcPath)) {
-        throw new Error(`Please include table of content for ${srcPath}`);
+        console.error(`Please include table of content for ${srcPath}`); // eslint-disable-line no-console
+        process.exit(1);
       } else if (res.length) {
         ymlCompose(config);
         documentation.formats.md(res, {}).then((output: string) => {
