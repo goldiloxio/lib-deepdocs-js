@@ -26,9 +26,7 @@ This installs the command `deepdocs` that you can include in your `package.json`
 ```
 
 ## Configs
-`documentation.js` allows the usage of table of contents for both markup and markdown docs. In order to do so, a `documentation.yml` file is expeceted in `docs/configs` for the markup documentation and a `docs.yml` file is expected in every folder in which the READMEs will be created.
-To avoid having to copy and paste the content of each `docs.yml` into the `documentation.yml`, deepdocs runs a `ymlCompose` function which will take care of automatically run this operation, right before writing the docs.
-
+`documentation.js` allows the usage of configuration files for both markup and markdown docs. This enables the control over the order of the elements in the documentation. To do so, a `documentation.yml` file is expeceted in `docs/configs` for the markup docs and a `docs.yml` file is expected in every folder in which the READMEs will be created (markdown docs).
 
 ***Example tree structure***
 
@@ -38,15 +36,15 @@ To avoid having to copy and paste the content of each `docs.yml` into the `docum
     │   ├── api
     │       └── index.html                # markup documentation
     │   └── configs
-    │       └── documentation.yml         # table of content for markup documentation
+    │       └── documentation.yml         # configuration files for markup documentation
     ├── src
     │   ├── helpers
     │       ├── index.js
-    │       ├── docs.yml                  # table of content for helpers/index.js
+    │       ├── docs.yml                  # configuration files for helpers/index.js
     │       ├── README.md
     │   ├── components
     │       ├── index.js
-    │       ├── docs.yml                  # table of content for components/index.js
+    │       ├── docs.yml                  # configuration files for components/index.js
     │       ├── README.md
     │   └── ...                           # etc.
     └── ...
