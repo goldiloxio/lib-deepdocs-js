@@ -37,17 +37,17 @@ To avoid having to copy and paste the content of each `docs.yml` into the `docum
     ├── ...
     ├── docs
     ├── configs
- 	 	  ├── documentation.yml      #table of content for markup documentation
+        ├── documentation.yml                 #table of content for markup documentation
     ├── src
     │   ├── helpers
-    │	 	  ├── index.js
-    │	 	  ├── docs.yml				   # table of content for helpers/index.js
-    │	 	  ├── README.MD
+    │	    ├── index.js
+    │	    ├── docs.yml	          # table of content for helpers/index.js
+    │	    ├── README.MD
     │   ├── components
     │	 	  ├── index.js
-    │	 	  ├── docs.yml           # table of content for components/index.js
+    │	 	  ├── docs.yml            # table of content for components/index.js
     │	 	  ├── README.MD
-    │   └── ...                  # etc.
+    │   └── ...                               # etc.
     └── ...
 
 ## Githooks
