@@ -1,6 +1,12 @@
 #!/bin/bash
 source ./.githooks/colors.sh
 
+if [ ! -f docs/configs/documentation.yml ]; then
+  echo >&2 "${yellow}Documentation config files need to be generated. Please run:"
+  echo >&2 "npm run deepdocs${no_color}"
+  exit 1
+fi
+
 npm run build && npm run deepdocs
 
 re="README"
