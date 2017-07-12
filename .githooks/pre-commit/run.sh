@@ -12,6 +12,3 @@ sh .githooks/pre-commit/deepdocs || exit 1;
 
 echo >&2 "${green}[precommit] building html documentation${no_color}"
 sh .githooks/pre-commit/documentation || exit 1;
-
-echo >&2 "${green}[precommit] checking dependencies${no_color}"
-sh .githooks/pre-commit/shrinkwrap || exit 1;

@@ -18,7 +18,7 @@ Install `deepdocs` using the [npm](https://www.npmjs.com/) package manager:
 ```sh
 $ npm install deepdocs --save
 ```
-This installs the command `deepdocs` that you can include in your `package.json` and call the build function by providing a source path.
+This installs the command `deepdocs` that you can include in your `package.json` and call the build script by providing a source path.
 
 ```json
 "deepdocs": "deepdocs build --path ./src"
