@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import prompt from 'prompt';
 import mkdirp from 'mkdirp';
 
-const ymlMarkdownPath: string = 'docs.yml';
+const YML_MARKDOWN_PATH: string = 'docs.yml';
 const ymlMarkupPath: string = path.join('docs', 'configs', 'documentation.yml');
 const appendTag: string = '#docs';
 const extensions: string[] = ['.js'];
@@ -52,10 +52,10 @@ const filePath: Function = (srcPath: string): Function => (
 * @returns array of folders names
 */
 export const getDirectories: Function = (srcPath: string): string[] =>
-fs
-.readdirSync(srcPath)
-.filter(directoriesFilter(srcPath))
-.filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
+  fs
+  .readdirSync(srcPath)
+  .filter(directoriesFilter(srcPath))
+  .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
 
 /**
 * Given a folder path, `getFiles` returns
@@ -64,7 +64,7 @@ fs
 * @function getFiles
 */
 export const getFiles: Function = (srcPath: string): string[] =>
-fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
+  fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
 
 /**
 * Returns true if the given folder contains
@@ -73,8 +73,8 @@ fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
 * @function hasConfig
 */
 export const hasConfig: Function = (srcPath: string): boolean =>
-fs.readdirSync(srcPath).filter((file: string) => file === ymlMarkdownPath)
-.length > 0;
+  fs.readdirSync(srcPath).filter((file: string) => file === YML_MARKDOWN_PATH)
+  .length > 0;
 
 /**
 * This function takes care of appending
