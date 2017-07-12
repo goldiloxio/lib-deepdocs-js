@@ -1,7 +1,9 @@
 <p align="center">
   <img src="./.github/deep-iceberg.png" width="150" alt="Designed by Freepik from www.flaticon.com" />
 </p>
-
+<p align="center">
+<strong>DEEPDOCS</strong>
+</p>
 <p align="center">
   Generate README files recursively at each folder layer.
 </p>
