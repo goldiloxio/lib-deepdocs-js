@@ -1,0 +1,18 @@
+#!/bin/bash
+source ./.githooks/colors.sh
+
+if [ ! -f docs/configs/documentation.yml ]; then
+  echo >&2 "${yellow}Documentation config files need to be generated. Please run:"
+  echo >&2 "npm run deepdocs${no_color}"
+  exit 1
+fi
+
+npm run build && npm run deepdocs
+
+files=`git status -s | grep -E 'documentation.yml|README' | cut -c4-`
+
+if [ ! -z "$files" ] && [ "$code" != "D" ]
+then
+  `git add $files`
+  echo "${green}Adding README files${no_color}"
+fi
