@@ -64,10 +64,7 @@ export const getDirectories: Function = (srcPath: string): string[] =>
 * @function getFiles
 */
 export const getFiles: Function = (srcPath: string): string[] =>
-  fs
-    .readdirSync(srcPath)
-    .filter(filesFilter(srcPath))
-    .map(filePath(srcPath));
+  fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
 
 /**
 * Returns true if the given folder contains
@@ -76,9 +73,7 @@ export const getFiles: Function = (srcPath: string): string[] =>
 * @function hasConfig
 */
 export const hasConfig: Function = (srcPath: string): boolean =>
-  fs
-    .readdirSync(srcPath)
-    .filter((file: string) => file === YML_MARKDOWN_PATH)
+  fs.readdirSync(srcPath).filter((file: string) => file === YML_MARKDOWN_PATH)
     .length > 0;
 
 /**
@@ -113,14 +108,13 @@ export const ymlCompose: Function = (currentPath: string) => {
 const configTemplate: Function = (res: {
   name: string,
   description: string,
-}): string => { // eslint-disable-line
-  return `toc:
+}): string =>
+  `toc:
   #main
   - name: ${res.name}
     description: |
       ${res.description}
   #docs`;
-};
 
 /**
 * Prompts the user with an input to
