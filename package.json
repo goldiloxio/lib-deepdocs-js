@@ -1,6 +1,6 @@
 {
   "name": "@raise/deepdocs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recursively extracts documentation comments and builds README files at each folder level",
   "bin": {
     "deepdocs": "./bin/index.js"
