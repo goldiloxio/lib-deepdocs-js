@@ -4,6 +4,14 @@ toc:
     description: |
       Create README files in every folder containing documentation comments.
   #docs
+  - name: Build
+    description: |
+      Command to recursively extract documentation comments and build
+      *README.md* files at each folder level.
+  - handler
+  - init
+  - write
+
   - name: Utils
     description: |
       Set of helper functions that facilitate the work of the library commands.
@@ -16,11 +24,3 @@ toc:
   - configTemplate
   - populateConfig
   - ymlCompose
-
-  - name: Build
-    description: |
-      Command to recursively extract documentation comments and build
-      *README.md* files at each folder level.
-  - handler
-  - init
-  - write

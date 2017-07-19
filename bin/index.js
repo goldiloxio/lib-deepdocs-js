@@ -4,6 +4,10 @@ const yargs = require('yargs');
 const commands = require('../lib/commands').default;
 const version = require('../package').version;
 
+const usageMsg = `Usage:
+  # generate markdown documentation for every folder level that contains comments-doc
+  $0 build --path ./src`;
+
 const argv = yargs
   .command(commands.build)
   .fail((msg, error) => {
@@ -15,11 +19,7 @@ const argv = yargs
     }
   })
   .version(() => version)
-  .usage(
-    `Usage:
-      # generate markdown documentation for every folder level that contains comments-doc
-      $0 build --path ./src`
-  )
+  .usage(usageMsg)
   .recommendCommands()
   .help().argv;
 

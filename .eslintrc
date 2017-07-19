@@ -1,5 +1,8 @@
 {
-  "extends": "eslint-config-airbnb",
+  "extends": [
+    "eslint-config-airbnb",
+    "prettier"
+  ],
   "parser": "babel-eslint",
   "plugins": [
     "flowtype"
@@ -11,5 +14,9 @@
     "import/resolver": {
       "babel-module": {}
     }
+  },
+  "env": {
+    "node": true,
+    "jest": true
   }
 }
