@@ -1,6 +1,6 @@
 {
-  "name": "@raise/deepdocs",
-  "version": "1.0.1",
+  "name": "@goldiloxio/deepdocs",
+  "version": "1.0.10",
   "description": "Recursively extracts documentation comments and builds README files at each folder level",
   "bin": {
     "deepdocs": "./bin/index.js"
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "chalk": "^2.0.1",
-    "documentation": "https://repository.tools.raise.services/repository/npm/documentation/-/documentation-4.0.0-rc.1.tgz",
+    "documentation": "^4.0.0-rc.1",
     "mkdirp": "^0.5.1",
     "path": "^0.12.7",
     "prompt": "^1.0.0",
