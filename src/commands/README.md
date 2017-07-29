@@ -11,8 +11,6 @@ _README.md_ files at each folder level.
 This function handles the command line input and looks for the custom
 path. If not included it throws an error, otherwise it inits the process.
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `argv` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
@@ -26,8 +24,6 @@ Before launching the [#crawler](#crawler) function,
 the required `documentation.yml` file in
 `docs/config`.
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -38,8 +34,6 @@ Returns **(void | [Function](https://developer.mozilla.org/en-US/docs/Web/JavaSc
 
 Passes all the files contained in the folder to `documentation.js`
 which will look for comments and extract them into a README file.
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
 **Parameters**
 

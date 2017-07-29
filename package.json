@@ -1,6 +1,6 @@
 {
   "name": "@goldiloxio/deepdocs",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Recursively extracts documentation comments and builds README files at each folder level",
   "bin": {
     "deepdocs": "./bin/index.js"
@@ -9,9 +9,10 @@
     "build": "babel src --out-dir lib --no-comments",
     "lint": "eslint -c .eslintrc ./src --ext .js,.jsx,.es6,.coffee",
     "lint:changed": "eslint -c .eslintrc --cache ./src --ext .js,.jsx,.es6,.coffee",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:changed": "jest -o",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "flow": "flow",
     "beautify": "prettier --trailing-comma all --parser flow --single-quote --write \"{src,bin,__{tests,mocks}__}/**/*.js\"",
     "precommit": "sh ./.githooks/pre-commit/run.sh",
     "prepush": "sh ./.githooks/pre-push/run.sh",
@@ -22,7 +23,7 @@
   },
   "dependencies": {
     "chalk": "^2.0.1",
-    "documentation": "^4.0.0-rc.1",
+    "documentation": "^5.0.1",
     "mkdirp": "^0.5.1",
     "path": "^0.12.7",
     "prompt": "^1.0.0",

@@ -10,7 +10,7 @@ const usageMsg = `Usage:
 
 const argv = yargs
   .command(commands.build)
-  .fail((msg, error) => {
+  .fail(function commandFail(msg, error) {
     if (error) {
       throw error;
     } else {
@@ -18,7 +18,7 @@ const argv = yargs
       return yargs.exit(1);
     }
   })
-  .version(() => version)
+  .version(function getVersion() { return version; })
   .usage(usageMsg)
   .recommendCommands()
   .help().argv;

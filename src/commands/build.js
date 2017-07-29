@@ -17,7 +17,7 @@ const ymlMarkupPath = path.join('docs', 'configs', 'documentation.yml');
 * which will look for comments and extract them into a README file.
 * @function write
 */
-const write: Function = (srcPath: string): void => {
+function write(srcPath: string): void {
   const config: ?string = hasConfig(srcPath)
     ? path.join(srcPath, 'docs.yml')
     : undefined;
@@ -26,19 +26,19 @@ const write: Function = (srcPath: string): void => {
 
   documentation
     .build(containedFiles, options)
-    .then((res: string) => {
+    .then(function findDocumentation(res: string) {
       if (res.length && !hasConfig(srcPath)) {
         console.error(`Please include table of content for ${srcPath}`); // eslint-disable-line no-console
         process.exit(1);
       } else if (res.length) {
         ymlCompose(config);
-        documentation.formats.md(res, {}).then((output: string) => {
+        documentation.formats.md(res, {}).then(function buildDocumentation(output: string) {
           const file = path.join(srcPath, 'README.md');
           fs.writeFileSync(file, output);
         });
       }
     })
-    .catch((err: string) => {
+    .catch(function documentationBuildError(err: string) {
       throw err;
     });
 };
@@ -50,10 +50,10 @@ const write: Function = (srcPath: string): void => {
 * README file.
 * @function crawler
 */
-const crawler = (srcPath: string) => {
+function crawler(srcPath: string) {
   const directories: string[] = getDirectories(srcPath);
   if (directories.length) {
-    directories.forEach((directory: string) => {
+    directories.forEach(function crawlDirectory(directory: string) {
       const dirPath = path.join(srcPath, directory);
       return crawler(dirPath);
     });
@@ -70,7 +70,7 @@ const crawler = (srcPath: string) => {
 * `docs/config`.
 * @function init
 */
-const init: Function = (srcPath: string): void | Function => {
+function init(srcPath: string): void | Function {
   const configExist = fs.existsSync(ymlMarkupPath);
   if (configExist) {
     crawler(srcPath);
@@ -85,7 +85,7 @@ const init: Function = (srcPath: string): void | Function => {
 * path. If not included it throws an error, otherwise it inits the process.
 * @function handler
 */
-const handler: Function = (argv: Object): void => {
+function handler(argv: Object): void {
   const srcPath = argv ? argv.path || argv.p : undefined;
   if (!srcPath) {
     throw new Error('Please provide source path for deepdocs');

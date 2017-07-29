@@ -18,7 +18,7 @@
 Install `deepdocs` using the [npm](https://www.npmjs.com/) package manager:
 
 ```sh
-$ npm install deepdocs --save
+$ npm install @raise/deepdocs --save-dev
 ```
 This installs the command `deepdocs` that you can include in your `package.json` and call the build script by providing a source path.
 
@@ -36,7 +36,7 @@ This installs the command `deepdocs` that you can include in your `package.json`
     ├── ...
     ├── docs
     │   ├── api
-    │       └── index.html                # markup documentation
+    │       └── index.html                # html documentation
     │   └── configs
     │       └── documentation.yml         # configuration files for markup documentation
     ├── src

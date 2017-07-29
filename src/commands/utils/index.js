@@ -15,9 +15,11 @@ const TEST_DIRECTORY_REGEX: RegExp = /^__.+__$/;
 * returns all existing sub-folders
 * @function directoriesFilter
 */
-const directoriesFilter: Function = (srcPath: string): Function => (
-  file: string,
-): boolean => fs.statSync(path.join(srcPath, file)).isDirectory();
+function directoriesFilter(srcPath: string): Function {
+  return function isDirectory(file: string): boolean {
+    return fs.statSync(path.join(srcPath, file)).isDirectory();
+  };
+};
 
 /**
 * Given a specific folder, returns all
@@ -26,23 +28,25 @@ const directoriesFilter: Function = (srcPath: string): Function => (
 * Current extensions: `['.js']`.
 * @function filesFilter
 */
-const filesFilter: Function = (srcPath: string): Function => (
-  file: string,
-): boolean => {
-  const currentPath = path.join(srcPath, file);
-  return (
-    fs.statSync(currentPath).isFile() &&
-    extensions.includes(path.extname(currentPath))
-  );
+function filesFilter(srcPath: string): Function {
+  return function isFile(file: string): boolean {
+    const currentPath = path.join(srcPath, file);
+    return (
+      fs.statSync(currentPath).isFile() &&
+      extensions.includes(path.extname(currentPath))
+    );
+  };
 };
 
 /**
 * Returns the complete path to a specific file.
 * @function filePath
 */
-const filePath: Function = (srcPath: string): Function => (
-  file: string,
-): string => path.join(srcPath, file);
+function filePath(srcPath: string): Function {
+  return function joinPath(file: string): string {
+    return path.join(srcPath, file);
+  };
+};
 
 /**
 * Given a folder path, `getDirectories`
@@ -51,20 +55,24 @@ const filePath: Function = (srcPath: string): Function => (
 * @function getDirectories
 * @returns array of folders names
 */
-export const getDirectories: Function = (srcPath: string): string[] =>
-  fs
+export function getDirectories(srcPath: string): string[] {
+  return fs
     .readdirSync(srcPath)
     .filter(directoriesFilter(srcPath))
-    .filter(dir => !dir.match(TEST_DIRECTORY_REGEX));
+    .filter(function filterTestFolders(dir) {
+      return !dir.match(TEST_DIRECTORY_REGEX);
+    });
+};
 
 /**
 * Given a folder path, `getFiles` returns
 * the contained files that satisfy the
-* rules given by {@link filesFilter}.
+* rules given by filesFilter.
 * @function getFiles
 */
-export const getFiles: Function = (srcPath: string): string[] =>
-  fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
+export function getFiles(srcPath: string): string[] {
+  return fs.readdirSync(srcPath).filter(filesFilter(srcPath)).map(filePath(srcPath));
+};
 
 /**
 * Returns true if the given folder contains
@@ -72,9 +80,13 @@ export const getFiles: Function = (srcPath: string): string[] =>
 * presence of documentation comments.
 * @function hasConfig
 */
-export const hasConfig: Function = (srcPath: string): boolean =>
-  fs.readdirSync(srcPath).filter((file: string) => file === YML_MARKDOWN_PATH)
-    .length > 0;
+export function hasConfig(srcPath: string): boolean {
+  return fs
+    .readdirSync(srcPath)
+    .filter(function filterYmlPath(file: string) {
+      return file === YML_MARKDOWN_PATH;
+    }).length > 0;
+};
 
 /**
 * This function takes care of appending
@@ -86,11 +98,11 @@ export const hasConfig: Function = (srcPath: string): boolean =>
 * predefined `#docs` tag.
 * @function ymlCompose
 */
-export const ymlCompose: Function = (currentPath: string) => {
+export function ymlCompose(currentPath: string) {
   const current: string = fs.readFileSync(ymlMarkupPath);
   const idxTag: number = current.indexOf(appendTag) + appendTag.length;
 
-  fs.truncate(ymlMarkupPath, idxTag, () => {
+  fs.truncate(ymlMarkupPath, idxTag, function appendContent() {
     const content: string = fs.readFileSync(currentPath, 'utf8');
     const toc: string = content.replace(/\btoc:/, '');
     fs.appendFileSync(ymlMarkupPath, toc);
@@ -102,19 +114,21 @@ export const ymlCompose: Function = (currentPath: string) => {
 * which will be used for markup documentation.
 * In order to populate name and description it
 * takes for parameters the user's input from
-* {@link populateConfig}.
+* the populateConfig function.
 * @function configTemplate
 */
-const configTemplate: Function = (res: {
+function configTemplate(res: {
   name: string,
   description: string,
-}): string =>
-  `toc:
+}): string {
+  return `toc:
   #main
   - name: ${res.name}
     description: |
       ${res.description}
   #docs`;
+}
+
 
 /**
 * Prompts the user with an input to
@@ -122,7 +136,7 @@ const configTemplate: Function = (res: {
 * name and its description.
 * @function populateConfig
 */
-export const populateConfig: Function = (callback: Function): void => {
+export function populateConfig(callback: Function): void {
   prompt.message = '[deepdocs]';
   prompt.start();
   prompt.get(
@@ -142,7 +156,7 @@ export const populateConfig: Function = (callback: Function): void => {
         },
       },
     },
-    (err, res) => {
+    function handleInputs(err, res) {
       if (err) {
         console.log(err); // eslint-disable-line no-console
         return;

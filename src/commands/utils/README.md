@@ -11,8 +11,6 @@ Given a folder path, `getDirectories`
 returns contained sub-folders that
 are not dedicated to testing.
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -24,8 +22,6 @@ Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 Given a source path, this function
 returns all existing sub-folders
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -36,9 +32,7 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 Given a folder path, `getFiles` returns
 the contained files that satisfy the
-rules given by [filesFilter](#filesfilter).
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+rules given by filesFilter.
 
 **Parameters**
 
@@ -53,8 +47,6 @@ the files that have one of the extensions
 allowed.
 Current extensions: `['.js']`.
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -64,8 +56,6 @@ Returns **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 ## filePath
 
 Returns the complete path to a specific file.
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
 **Parameters**
 
@@ -79,8 +69,6 @@ Returns true if the given folder contains
 the `docs.yml` file expected in the
 presence of documentation comments.
 
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
-
 **Parameters**
 
 -   `srcPath` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -93,9 +81,7 @@ Returns a template for the main config file
 which will be used for markup documentation.
 In order to populate name and description it
 takes for parameters the user's input from
-[populateConfig](#populateconfig).
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
+the populateConfig function.
 
 **Parameters**
 
@@ -108,8 +94,6 @@ Returns **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refer
 Prompts the user with an input to
 insert the application or library
 name and its description.
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
 **Parameters**
 
@@ -126,8 +110,6 @@ for markup docs. It allows the usage
 of a main title and description and
 appends the content only after the
 predefined `#docs` tag.
-
-Type: [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)
 
 **Parameters**
 

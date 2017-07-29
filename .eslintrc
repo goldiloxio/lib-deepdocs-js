@@ -8,7 +8,8 @@
     "flowtype"
   ],
   "rules": {
-    "wrap-iife": [2, "any"]
+    "wrap-iife": [2, "any"],
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }]
   },
   "settings": {
     "import/resolver": {

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>@goldiloxio/deepdocs 1.0.10 | Documentation</title>
+  <title>@goldiloxio/deepdocs 1.0.11 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -14,7 +14,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>@goldiloxio/deepdocs</h3>
-          <div class='mb1'><code>1.0.10</code></div>
+          <div class='mb1'><code>1.0.11</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -243,11 +243,6 @@ are not dedicated to testing.</p>
 
   <div class='pre p1 fill-light mt0'>getDirectories(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -317,11 +312,6 @@ returns all existing sub-folders</p>
 
   <div class='pre p1 fill-light mt0'>directoriesFilter(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -384,15 +374,10 @@ returns all existing sub-folders</p>
 
   <p>Given a folder path, <code>getFiles</code> returns
 the contained files that satisfy the
-rules given by <a href="#filesfilter">filesFilter</a>.</p>
+rules given by filesFilter.</p>
 
 
   <div class='pre p1 fill-light mt0'>getFiles(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
@@ -462,11 +447,6 @@ Current extensions: <code>['.js']</code>.</p>
 
   <div class='pre p1 fill-light mt0'>filesFilter(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -531,11 +511,6 @@ Current extensions: <code>['.js']</code>.</p>
 
 
   <div class='pre p1 fill-light mt0'>filePath(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
@@ -604,11 +579,6 @@ presence of documentation comments.</p>
 
   <div class='pre p1 fill-light mt0'>hasConfig(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -673,15 +643,10 @@ presence of documentation comments.</p>
 which will be used for markup documentation.
 In order to populate name and description it
 takes for parameters the user's input from
-<a href="#populateconfig">populateConfig</a>.</p>
+the populateConfig function.</p>
 
 
   <div class='pre p1 fill-light mt0'>configTemplate(res: {name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>}): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
@@ -749,11 +714,6 @@ name and its description.</p>
 
 
   <div class='pre p1 fill-light mt0'>populateConfig(callback: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): void</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
@@ -825,11 +785,6 @@ predefined <code>#docs</code> tag.</p>
 
 
   <div class='pre p1 fill-light mt0'>ymlCompose(currentPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
@@ -908,11 +863,6 @@ path. If not included it throws an error, otherwise it inits the process.</p>
 
   <div class='pre p1 fill-light mt0'>handler(argv: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): void</div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -981,11 +931,6 @@ the required <code>documentation.yml</code> file in
 
   <div class='pre p1 fill-light mt0'>init(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (void | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</div>
   
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
-  
   
 
   
@@ -1051,11 +996,6 @@ which will look for comments and extract them into a README file.</p>
 
 
   <div class='pre p1 fill-light mt0'>write(srcPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): void</div>
-  
-    <p>
-      Type:
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>
-    </p>
   
   
 
